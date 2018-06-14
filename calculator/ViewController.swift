@@ -18,18 +18,37 @@ class ViewController: UIViewController {
     {
         if performingMath == true
         {
+            // this print is only for test purposes
+            print(sender.tag-1)
             label.text = String(sender.tag-1)
             NumberOnScreen = Double(label.text!)!
             performingMath = false
         }
         else
         {
-        label.text = label.text! + String(sender.tag-1)
+            var string:String? = label.text
+            if sender.tag == 0 && string != nil
+                && (!(string!.contains(".")))
+            {
+                label.text = label.text! + "."
+            }else{
+                if sender.tag == 0{
+                    
+                }else{
+                label.text = label.text! + String(sender.tag-1)
+            }
+            
+        }
+            
+            print(label.text)
             NumberOnScreen = Double(label.text!)!
+            
         }
     }
     
     @IBAction func buttons(_ sender: UIButton) {
+        // tag 11 is clear, tag 16 is equal sign, tag 17 is delete
+        // tag -1 is percentage sign
         if label.text != "" && sender.tag != 11 && sender.tag != 16 && sender.tag != 17 && sender.tag != -1
         {
             previousNumber = Double(label.text!)!
