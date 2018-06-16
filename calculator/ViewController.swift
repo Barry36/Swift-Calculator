@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         }
         else
         {
+            // this is just a test
             var string:String? = label.text
             if sender.tag == 0 && string != nil
                 && (!(string!.contains(".")))
