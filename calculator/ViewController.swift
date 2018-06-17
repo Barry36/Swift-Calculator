@@ -74,6 +74,8 @@ class ViewController: UIViewController {
         }
         else if sender.tag == 16
         {
+            print(previousNumber)
+            print(NumberOnScreen)
             if operation == 12
             {
                 label.text = String(previousNumber / NumberOnScreen)
@@ -94,12 +96,15 @@ class ViewController: UIViewController {
         else if sender.tag == 17        // Delete button
             {
                 // Notice when Double(""), we will get a 'nil' as return value
+                
+                
                 label.text = String(label.text!.dropLast());
                 if label.text != ""{
-                    NumberOnScreen = Double(label.text!)!;
+                    //NumberOnScreen = Double(label.text!)!;
                 }else{
+                    label.text = "";
                     NumberOnScreen = 0;
-                    label.text = String("0");
+                    operation = 0;
                 }
 
             }
@@ -109,6 +114,7 @@ class ViewController: UIViewController {
                 previousNumber = 0;
                 NumberOnScreen = 0;
                 operation = 0;
+                
             }
     }
     
